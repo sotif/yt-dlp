@@ -684,6 +684,7 @@ class FFmpegFixupM4aPP(FFmpegPostProcessor):
         temp_filename = prepend_extension(filename, 'temp')
 
         options = ['-c', 'copy', '-map', '0', '-dn', '-f', 'mp4']
+        options = ['-c', 'copy', '-map', '0', '-dn', '-f', 'mp4']
         self.to_screen('Correcting container in "%s"' % filename)
         self.run_ffmpeg(filename, temp_filename, options)
 
@@ -700,6 +701,7 @@ class FFmpegFixupM3u8PP(FFmpegPostProcessor):
             temp_filename = prepend_extension(filename, 'temp')
 
             options = ['-c', 'copy', '-map', '0', '-dn', '-f', 'mp4', '-bsf:a', 'aac_adtstoasc']
+            options = ['-c', 'copy', '-f', 'mp4', '-bsf:a', 'aac_adtstoasc']
             self.to_screen('Fixing malformed AAC bitstream in "%s"' % filename)
             self.run_ffmpeg(filename, temp_filename, options)
 
